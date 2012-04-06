@@ -101,6 +101,15 @@ module RestKit
                 puts "No server found listening on #{server_status.host_and_port}"
               end
             end
+            
+            desc "Abort the task chain unless the Test server is running"
+            task :abort_unless_running do
+              server_status = RestKit::Server::Status.new(nil, host, port)
+              server_status.check
+              unless server_status.listening?
+                exit(-1)
+              end
+            end
           
             namespace :logs do
               desc "Tails the Test server logs"
