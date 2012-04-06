@@ -33,7 +33,7 @@ module RestKit
             namespace :thin do
               desc 'Generate a Thin configuration for executing the server'
               task :generate do
-                command = "#{thin_bin} -P #{config.port} -R #{config.rackup_file} -d -l #{config.log_file} -P #{config.pid_file} #{config_file_argument} config"
+                command = "#{thin_bin} -p #{config.port} -R #{config.rackup_file} -d -l #{config.log_file} -P #{config.pid_file} #{config_file_argument} config"
                 RestKit::Shell.execute(command)
               end
             end
