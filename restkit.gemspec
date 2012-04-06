@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Blake Watters"]
   s.date = "2012-04-06"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Ruby support utilities for the RestKit framework for iOS and OS X"
   s.email = "blakewatters@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.17"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Ruby support utilities for the RestKit framework for iOS and OS X"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

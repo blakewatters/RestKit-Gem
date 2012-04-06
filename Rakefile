@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "restkit"
   gem.homepage = "http://restkit.org/"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby support utilities for the RestKit framework for iOS and OS X}
+  gem.description = %Q{Ruby support utilities for the RestKit framework for iOS and OS X}
   gem.email = "blakewatters@gmail.com"
   gem.authors = ["Blake Watters"]
   # dependencies defined in Gemfile
