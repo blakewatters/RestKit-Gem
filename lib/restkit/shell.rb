@@ -17,7 +17,7 @@ module RestKit
       end
       
       def execute(command)
-        puts "Executing: `#{command}`" if configatron.server.commands.echo
+        puts "Executing: `#{command}`" if echo_commands?
         system(command)
         return $?
       end
