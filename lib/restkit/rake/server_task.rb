@@ -62,7 +62,7 @@ module RestKit
                 server_status = ServerStatus.new(pid, host, port)
                 server_status.check
                 if server_status.up?
-                  puts "Unable to run server: Existing process with pid #{server_status.pid} found listening on #{server_status.host}:#{server_status.port}"
+                  $stderr.puts "Unable to run server: Existing process with pid #{server_status.pid} found listening on #{server_status.host}:#{server_status.port}"
                   exit(1)
                 end
               end
@@ -98,7 +98,7 @@ module RestKit
               if server_status.listening?
                 puts server_status.to_s
               else
-                puts "No server found listening on #{server_status.host_and_port}"
+                $stderr.puts "!! No server found listening on #{server_status.host_and_port}"
               end
             end
             
@@ -107,6 +107,7 @@ module RestKit
               server_status = RestKit::Server::Status.new(nil, host, port)
               server_status.check
               unless server_status.listening?
+                $stderr.puts "!! Aborting: No server found listening on #{server_status.host_and_port}"
                 exit(-1)
               end
             end
