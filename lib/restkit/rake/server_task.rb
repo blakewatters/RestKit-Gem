@@ -113,12 +113,23 @@ module RestKit
             end
           
             desc "Starts the server if there is not already an instance running"
-            task :autostart do
+            task :autostart do              
               server_status = RestKit::Server::Status.new(nil, host, port)
               server_status.check
               unless server_status.listening?
+                @auto_started = true
                 $stderr.puts "!! Auto-starting server: No server found listening on #{server_status.host_and_port}"
                 RestKit::Shell.execute(start_command)
+              end
+            end
+            
+            desc "Stops the server if executed via autostart"
+            task :autostop do
+              server_status = RestKit::Server::Status.new(nil, host, port)
+              server_status.check
+              if @auto_started = server_status.listening?
+                $stderr.puts "!! Stopping auto-started server listening on #{server_status.host_and_port}"
+                RestKit::Shell.execute(stop_command)
               end
             end
             
