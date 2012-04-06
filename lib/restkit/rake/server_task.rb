@@ -112,6 +112,16 @@ module RestKit
               end
             end
           
+            desc "Starts the server if there is not already an instance running"
+            task :autostart do
+              server_status = RestKit::Server::Status.new(nil, host, port)
+              server_status.check
+              unless server_status.listening?
+                $stderr.puts "!! Auto-starting server: No server found listening on #{server_status.host_and_port}"
+                RestKit::Shell.execute(start_command)
+              end
+            end
+            
             namespace :logs do
               desc "Tails the Test server logs"
               task :tail do
