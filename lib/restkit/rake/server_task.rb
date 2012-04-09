@@ -127,7 +127,7 @@ module RestKit
             task :autostop do
               server_status = RestKit::Server::Status.new(nil, host, port)
               server_status.check
-              if @auto_started = server_status.listening?
+              if @auto_started && server_status.listening?
                 $stderr.puts "!! Stopping auto-started server listening on #{server_status.host_and_port}"
                 RestKit::Shell.execute(stop_command)
               end
