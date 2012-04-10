@@ -59,7 +59,7 @@ module RestKit
             task :run do
               if File.exists?(pid_file)
                 pid = File.read(pid_file).chomp
-                server_status = ServerStatus.new(pid, host, port)
+                server_status = RestKit::Server::Status.new(pid, host, port)
                 server_status.check
                 if server_status.up?
                   $stderr.puts "Unable to run server: Existing process with pid #{server_status.pid} found listening on #{server_status.host}:#{server_status.port}"
